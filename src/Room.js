@@ -3,22 +3,20 @@ import React, { useState } from 'react';
 import './Room.css' 
 
 function Room() {
-
     let [isLit, setLit] = useState(false);
-    let [age, setAge] = useState(23);
-
+    let [Temp, setTemp] = useState(22);
     return (
-/*
-<div className={"room "+(isLit?"Lit":"dark")}>
-*/
 
-        <div className={` room ${isLit? "Lit":"dark"}` }>
-            This is Room component : {isLit ? "lit" : "dark"};
+        <div className={`room ${isLit? "Lit":"dark"}`}>          
+
             <br />
-                    Age = {age}
+                    Current Room Temprature = {Temp}
             <br />
-            <button onClick={() => setLit(!isLit)} >Toggle Light</button>
-            <button onClick={() => setAge(++age)}  >Increase Age</button>
+
+            <button onClick={() => { if (isLit==false) setLit(true)}} >Turn Light On</button>            
+            <button onClick={() => { if (isLit==true) setLit(false)}} >Turn Light Off.</button>
+            <button onClick={() => setTemp(++Temp)}  >Increase Temprature</button>
+            <button onClick={() => setTemp(--Temp)}  >Decrease Temprature</button>
         </div>
     );
 }
